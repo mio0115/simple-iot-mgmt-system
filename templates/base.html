@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Simple IoT Management System{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+      {% else %}
+        <a href="{% url 'login' %}">Login</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}
+    <!-- child templates render their page content here -->
+    {% endblock %}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 My Company</p>
+  </footer>
+</body>
+</html>

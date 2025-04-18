@@ -1,0 +1,7 @@
+# Ruff Settings
+# Assume Python 3.12
+target-version = "py312"
+
+[tool.ruff.format]
+# Use single quotes in ruff format
+quote-style = "single"

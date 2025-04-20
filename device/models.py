@@ -1,3 +1,7 @@
+"""
+Device models
+"""
+
 from django.db import models
 
 from account.models import User
@@ -5,6 +9,8 @@ from account.models import User
 
 # Create your models here.
 class Device(models.Model):
+    """Device in the system."""
+
     class DeviceType(models.TextChoices):
         SENSOR = 'sensor', 'Sensor'
         ACTUATOR = 'actuator', 'Actuator'
@@ -44,6 +50,8 @@ class Device(models.Model):
 
 
 class DeviceLog(models.Model):
+    """Log of Device in the system."""
+
     device = models.ForeignKey(Device, on_delete=models.CASCADE, related_name='log')
     message = models.CharField(max_length=255, blank=False)
     created_at = models.DateTimeField(auto_now=True)
@@ -54,6 +62,8 @@ class DeviceLog(models.Model):
 
 
 class DeviceData(models.Model):
+    """Data of Device send to servers in the system."""
+
     device = models.ForeignKey(Device, on_delete=models.CASCADE, related_name='data')
     data = models.CharField(max_length=255, blank=False)
     created_at = models.DateTimeField(auto_now=True)

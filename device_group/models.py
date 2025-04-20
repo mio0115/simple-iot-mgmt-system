@@ -1,7 +1,11 @@
+"""
+DeviceGroup models.
+"""
+
 from django.db import models
 
-from device.models import Device
 from account.models import User
+from device.models import Device
 
 
 # Create your models here.
